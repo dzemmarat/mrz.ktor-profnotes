@@ -15,7 +15,7 @@ val notesList by lazy { db.getCollection<Note>() }
 
 // Application.kt
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
+    embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
         configureSerialization()
         configureMonitoring()
         configureHTTP()

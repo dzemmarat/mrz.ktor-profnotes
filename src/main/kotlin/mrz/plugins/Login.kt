@@ -16,6 +16,10 @@ fun Application.configureLogin() {
             call.respond(mapOf("success" to true))
         }
 
+        get("/") {
+            call.respondText("Hello")
+        }
+
         authenticate("basic") {
             get("/login") {
                 val principal = call.principal<User>()!!
